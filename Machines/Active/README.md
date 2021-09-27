@@ -1,22 +1,3 @@
----
-title: Active Writeup
-author: ["Matthias Penner", "matthias.penner10@gmail.com"]
-numbersections: false
-subtitle: "Hack the Box"
-titlepage: true
-titlepage-color: "DC143C"
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "FFFFFF"
-titlepage-rule-height: 2
-book: true
-logo: Active.png
-logo-width: 75mm
-classoption: oneside
-code-block-font-size: \scriptsize
-header-includes:
- 
----
-
 # Synopsis
 Active is an easy difficulty Active Directory machine which contains an SMB server hosted on port 445. This SMB server contains a share which can be read anonymously. This share contains a Group Permissions Policy file which discloses a user name for the ticket granting service account along with an encrypted password. Since this password is encrypted with a well known key, it can be easily decrypted. These credentials allow an attacker to perform a Kerberoast attack on the Administrator user in order to obtain their password hash. Once the hash has been cracked, the credentials can be used to obtain code execution on the box with full administrative access. 
 

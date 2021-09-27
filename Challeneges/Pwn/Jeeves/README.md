@@ -1,20 +1,3 @@
----
-title: Jeeves (PWN) Writeup
-author: ["Matthias Penner", "matthias.penner10@gmail.com"]
-numbersections: false
-subtitle: "Hack the Box"
-titlepage: true
-titlepage-color: "34c6eb"
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "FFFFFF"
-titlepage-rule-height: 2
-book: true
-classoption: oneside
-code-block-font-size: \scriptsize
-header-includes:
- 
----
-
 # Reverse Engineering the Binary
 Before reverse engineering the program, let's take a look at what the program does normally.
 

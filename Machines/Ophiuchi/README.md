@@ -1,21 +1,3 @@
----
-title: Ophiuchi Writeup
-author: ["Matthias Penner", "matthias.penner10@gmail.com"]
-numbersections: false
-subtitle: "Hack the Box"
-titlepage: true
-titlepage-color: "A432A8"
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "FFFFFF"
-titlepage-rule-height: 2
-book: true
-logo: Ophiuchi.png
-logo-width: 75mm
-classoption: oneside
-code-block-font-size: \scriptsize
-header-includes:
- 
----
 # Synopsis
 Ophiuchi is a medium difficulty Linux machine which contains a web server that parses YAML in a way that allows for insecure deserialization. This vulnerability is leveraged to obtain arbitrary code execution and a shell on the machine. Once a shell has been obtained, we can locate a set of credentials for the admin user in the web server configuration files. After having switched to the admin user, we can run a program written in Go as sudo. This program executes a WebAssembly file and an `sh` file. These files are not accessed using absolute paths and as a result the attacker effectively has full control over these files when being run through the Go program. The WebAssembly file can then be modified to force the program to execute the `sh` file which can contain any arbitrary code chosen by the attacker. After these modifications have been made, the Go file can be run granting the attacker full root access to the machine. 
 
